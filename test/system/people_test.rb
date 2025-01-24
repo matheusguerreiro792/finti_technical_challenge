@@ -21,7 +21,7 @@ class PeopleTest < ApplicationSystemTestCase
     fill_in "Name", with: @person.name
     click_on "Cadastrar"
 
-    assert_text "Person was successfully created"
+    assert_text "Pessoa Cadastrada com Sucesso"
     click_on "Voltar para Pessoas Cadastradas"
   end
 
@@ -36,7 +36,7 @@ class PeopleTest < ApplicationSystemTestCase
     fill_in "Name", with: @person.name
     click_on "Editar"
 
-    assert_text "Person was successfully updated"
+    assert_text "Pessoa Atualizada com Sucesso"
     click_on "Voltar para Pessoas Cadastradas"
   end
 
@@ -44,6 +44,6 @@ class PeopleTest < ApplicationSystemTestCase
     visit person_url(@person)
     click_on "Excluir esta Pessoa", match: :first
 
-    assert_text "Person was successfully destroyed"
+    assert_text "Pessoa Deletada com Sucesso"
   end
 end
