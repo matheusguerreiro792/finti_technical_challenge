@@ -14,11 +14,11 @@ class PeopleTest < ApplicationSystemTestCase
     visit people_url
     click_on "Cadastrar Nova Pessoa"
 
-    fill_in "Birth date", with: @person.birth_date
-    fill_in "Cell phone", with: @person.cell_phone
-    fill_in "Gender", with: @person.gender
-    fill_in "Last name", with: @person.last_name
-    fill_in "Name", with: @person.name
+    fill_in "person_birth_date", with: @person.birth_date
+    fill_in "person_cell_phone", with: @person.cell_phone
+    select @person.gender, from: "person_gender"
+    fill_in "person_last_name", with: @person.last_name
+    fill_in "person_name", with: @person.name
     click_on "Cadastrar"
 
     assert_text "Pessoa Cadastrada com Sucesso"
@@ -29,11 +29,11 @@ class PeopleTest < ApplicationSystemTestCase
     visit person_url(@person)
     click_on "Editar esta Pessoa", match: :first
 
-    fill_in "Birth date", with: @person.birth_date
-    fill_in "Cell phone", with: @person.cell_phone
-    fill_in "Gender", with: @person.gender
-    fill_in "Last name", with: @person.last_name
-    fill_in "Name", with: @person.name
+    fill_in "person_birth_date", with: @person.birth_date
+    fill_in "person_cell_phone", with: @person.cell_phone
+    select @person.gender, from: "person_gender"
+    fill_in "person_last_name", with: @person.last_name
+    fill_in "person_name", with: @person.name
     click_on "Editar"
 
     assert_text "Pessoa Atualizada com Sucesso"
