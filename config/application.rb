@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module FintiTechnicalChallenge
   class Application < Rails::Application
     config.time_zone = "Brasilia"
-    config.available_locales = [:'pt-BR']
+    config.available_locales = [ :'pt-BR' ]
     config.i18n.default_locale = :'pt-BR'
 
     # Initialize configuration defaults for originally generated Rails version.

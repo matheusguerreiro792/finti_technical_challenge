@@ -8,7 +8,7 @@ module DddStateMapper
 
   class_methods do
     def load_ddd_to_state
-      YAML.load_file(Rails.root.join('config', 'ddd_to_state.yml'))['ddd_to_state']
+      YAML.load_file(Rails.root.join("config", "ddd_to_state.yml"))["ddd_to_state"]
     rescue Errno::ENOENT, Psych::SyntaxError => e
       Rails.logger.error("Error loading ddd_to_state.yml: #{e.message}")
       {}
@@ -18,7 +18,7 @@ module DddStateMapper
   def state
     @state ||= begin
       ddd = cell_phone[1, 2]
-      self.class.ddd_to_state[ddd] || 'Desconhecido'
+      self.class.ddd_to_state[ddd] || "Desconhecido"
     end
   end
 

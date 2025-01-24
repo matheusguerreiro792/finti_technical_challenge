@@ -3,7 +3,7 @@ class Person < ApplicationRecord
 
   validates :name, :gender, :birth_date, :cell_phone, presence: true
   validates :gender, inclusion: { in: %w[Masculino Feminino] }
-  validates :birth_date, comparison: { less_than_or_equal_to: Date.today, message: 'não pode ser maior que a data atual' }
+  validates :birth_date, comparison: { less_than_or_equal_to: Date.today, message: "não pode ser maior que a data atual" }
   validate :cell_phone_format
   validate :valid_ddd
 
@@ -21,7 +21,7 @@ class Person < ApplicationRecord
   end
 
   def sanitize_cell_phone
-    self.cell_phone = cell_phone.gsub(/\D/, '') if cell_phone.present?
+    self.cell_phone = cell_phone.gsub(/\D/, "") if cell_phone.present?
     self.cell_phone
   end
 
