@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="h-100 w-100">
+  <head>
+    <title><%= content_for(:title) || "Finti Technical Challenge" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="d-flex flex-column h-100 w-100 bg-info">
+    <header class="d-flex justify-content-center p-3 bg-dark text-light shadow-sm">
+      <h1 class="h1 m-3">Desafio Técnico da Finti</h1>
+    </header>
+    <main class="d-flex flex-column flex-grow-1 bg-light py-3 px-4">
+      <%= yield %>
+    </main>
+    <footer class="d-flex justify-content-center p-2 bg-dark text-light">
+      <p class="m-0">&copy; <%= Time.current.year %> Finti</p>
+    </footer>
+  </body>
+</html>

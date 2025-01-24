@@ -1,0 +1,11 @@
+<% content_for :title, "New person" %>
+
+<h1><%=  I18n.t("activerecord.attributes.form.new_person") %></h1>
+
+<%= render "form", person: @person %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t("activerecord.attributes.nav.back_to_people"), people_path, class: "btn btn-primary fw-bold" %>
+</div>

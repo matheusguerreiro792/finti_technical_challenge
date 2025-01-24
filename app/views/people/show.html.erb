@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @person %>
+
+<div class="d-flex gap-3">
+  <%= link_to I18n.t("activerecord.attributes.nav.edit_this_person"), edit_person_path(@person), class: "btn btn-warning fw-bold" %>
+  <%= button_to I18n.t("activerecord.attributes.nav.destroy_this_person"), @person, method: :delete, class: "btn btn-danger fw-bold" %>
+</div>
+
+<%= link_to I18n.t("activerecord.attributes.nav.back_to_people"), people_path, class: "btn btn-primary fw-bold mt-3 w-25" %>

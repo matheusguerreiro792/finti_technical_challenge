@@ -1,0 +1,50 @@
+<main class="d-flex flex-column flex-grow-1 bg-light py-3 px-4 gap-3">
+  <p style="color: green"><%= notice %></p>
+
+  <% content_for :title, "People" %>
+
+  <h1><%= I18n.t("activerecord.attributes.nav.registered_peoples") %></h1>
+
+  <%if !@people.empty?%>
+    <table class="table table-striped">
+      <thead>
+        <tr class="align-middle text-center">
+          <th scope="col">#</th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.name") %></th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.last_name") %></th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.age") %></th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.gender") %></th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.cell_phone") %></th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.state") %></th>
+          <th scope="col"><%= I18n.t("activerecord.attributes.person.can_vote?") %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @people.each_with_index do |person, index| %>
+          <tr class="align-middle text-center">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= person.name %></td>
+            <td><%= person.last_name %></td>
+            <td><%= person.age %></td>
+            <td><%= person.gender %></td>
+            <td><%= person.cell_phone %></td>
+            <td><%= person.state %></td>
+            <td class="fw-bold"><%= person.can_vote? ? "Sim" : "Não" %></td>
+            <td><%= link_to I18n.t("activerecord.attributes.form.actions.show"), person, class: "btn btn-info fw-bold" %></td>
+            <td><%= link_to I18n.t("activerecord.attributes.form.actions.edit"), edit_person_path(person), class: "btn btn-warning fw-bold" %></td>
+            <td><%= link_to I18n.t("activerecord.attributes.form.actions.destroy"), person, class: "btn btn-danger fw-bold", method: :delete, data: { confirm: I18n.t("activerecord.attributes.form.have_sure?") } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%end%>
+
+  <%if @people.empty?%>
+    <h4><%= I18n.t("activerecord.attributes.info.no_registered_people") %></h4>
+  <%end%>
+
+  <%= link_to I18n.t("activerecord.attributes.nav.register_new_person"), new_person_path, class: "btn btn-success w-25 p-2 fw-bold" %>
+
+  <%= link_to I18n.t("activerecord.attributes.nav.back_to_home"), root_path, class: "btn btn-primary w-25 p-2 fw-bold" %>
+</main>

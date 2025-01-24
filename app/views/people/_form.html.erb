@@ -1,0 +1,42 @@
+<%= form_with(model: person, local: true, class: "d-flex flex-column gap-3") do |form| %>
+  <% if person.errors.any? %>
+    <div style="color: red">
+      <h4><%= pluralize(person.errors.count, "#{person.errors.count == 1 ? "erro!" : "erros!"}") %> proibido <%= person.persisted? ? "Atualizar" : "Cadastrar" %> essa Pessoa:</h4>
+
+      <ul>
+        <% person.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label I18n.t("activerecord.attributes.person.name"), class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Nome da Pessoa" %>
+  </div>
+
+  <div>
+    <%= form.label I18n.t("activerecord.attributes.person.last_name"), class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control", placeholder: "Sobrenome da Pessoa" %>
+  </div>
+
+  <div>
+    <%= form.label I18n.t("activerecord.attributes.person.gender"), class: "form-label" %>
+    <%= form.select :gender, [['Selecione o Gênero', ''], ['Masculino', 'Masculino'], ['Feminino', 'Feminino']], {}, { class: "form-select" } %>
+  </div>
+
+  <div>
+    <%= form.label I18n.t("activerecord.attributes.person.birth_date"), class: "form-label" %>
+    <%= form.date_field :birth_date, class: "form-control w-25" %>
+  </div>
+
+  <div>
+    <%= form.label I18n.t("activerecord.attributes.person.cell_phone"), class: "form-label" %>
+    <%= form.text_field :cell_phone, value: @person.persisted? ? @person.sanitize_cell_phone : "", class: "form-control", placeholder: "DDD+Numero Ex: 55999887766" %>
+  </div>
+
+  <div>
+    <%= form.submit @person.persisted? ? I18n.t("activerecord.attributes.form.actions.edit") : I18n.t("activerecord.attributes.form.actions.register"), class: "btn btn-success fw-bold font-lg" %>
+  </div>
+<% end %>

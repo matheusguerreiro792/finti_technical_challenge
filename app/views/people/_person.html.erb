@@ -1,0 +1,21 @@
+<div id="<%= dom_id person %>">
+  <p>
+    <strong><%= I18n.t("activerecord.attributes.person.name")%>:</strong>
+    <%= person.name %>
+  </p>
+
+  <% if person.last_name.present? %>
+    <p><strong><%= I18n.t("activerecord.attributes.person.last_name")%>:</strong> <%= person.last_name %></p>
+  <% end %>
+
+  <p>
+    <strong><%= I18n.t("activerecord.attributes.person.can_vote?")%></strong>
+    <%= person.can_vote? ? I18n.t("activerecord.attributes.person._yes") : I18n.t("activerecord.attributes.person._no") %>
+  </p>
+
+  <p>
+    <strong><%= I18n.t("activerecord.attributes.person.state")%>:</strong>
+    <%= person.state %>
+  </p>
+
+</div>

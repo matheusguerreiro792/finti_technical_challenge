@@ -1,0 +1,51 @@
+pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            name:
+              blank: "não pode ficar em branco"
+            gender:
+              blank: "não pode ficar em branco"
+            birth_date:
+              blank: "não pode ficar em branco"
+            cell_phone:
+              blank: "não pode ficar em branco"
+              invalid: "precisa ser no formato DDD+Numero Ex: 55999887766"
+    attributes:
+      person:
+        name: Nome
+        last_name: Sobrenome
+        gender: Sexo
+        birth_date: Data de Nascimento
+        cell_phone: Telefone Celular
+        state: Estado
+        age: Idade
+        can_vote?: Pode Votar?
+        _yes: Sim
+        _no: Não
+      form:
+        new_person: Nova Pessoa
+        have_sure?: Tem Certeza?
+        editing_person: Editando Pessoa
+        actions:
+          show: Visualizar
+          edit: Editar
+          destroy: Excluir
+          create: Criar
+          register: Cadastrar
+      nav:
+        back_to_people: Voltar para Pessoas Cadastradas
+        register_new_person: Cadastrar Nova Pessoa
+        registered_peoples: Pessoas Cadastradas
+        back_to_home: Voltar para a Página Inicial
+        edit_this_person: Editar esta Pessoa
+        destroy_this_person: Excluir esta Pessoa
+        show_this_person: Visualizar esta Pessoa
+      info:
+        no_registered_people: Nenhuma Pessoa cadastrada...
+
